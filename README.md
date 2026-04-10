@@ -49,7 +49,7 @@ Alunos: Gestão vinculada a responsáveis e escolas.
 
 Pagamentos: Controle de mensalidades com status e auditoria de datas.
 
-Desenvolvido por Carlos Roberto
+Desenvolvido por Carlos Roberto Ribeiro Santos Junior
 
 ![transp1](https://github.com/user-attachments/assets/4cbdf8bf-75ad-4640-9e3b-0fd7514b2b89)
 
