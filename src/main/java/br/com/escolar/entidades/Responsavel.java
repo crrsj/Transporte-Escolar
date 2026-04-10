@@ -1,0 +1,25 @@
+package br.com.escolar.entidades;
+
+import jakarta.persistence.*;
+import lombok.Data;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
+@Data
+public class Responsavel {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String nomeResponsavel;
+    private String cpf;
+    private String telefone;
+    private String email;
+    @OneToMany(mappedBy = "responsavel",cascade = CascadeType.ALL,orphanRemoval = true)
+    private List<Endereco>endereco = new ArrayList<>();
+    @OneToMany(mappedBy = "responsavel",cascade = CascadeType.ALL,orphanRemoval = true)
+    private List<Aluno>alunos = new ArrayList<>();
+    @OneToMany(mappedBy = "responsavel",cascade = CascadeType.ALL,orphanRemoval = true)
+    private List<Pagamento>pagamentos = new ArrayList<>();
+}
