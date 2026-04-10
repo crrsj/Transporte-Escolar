@@ -13,6 +13,7 @@ public class Responsavel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nomeResponsavel;
+    @Column(unique = true)
     private String cpf;
     private String telefone;
     private String email;

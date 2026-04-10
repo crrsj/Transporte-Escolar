@@ -1,6 +1,7 @@
 package br.com.escolar.excessoes;
 
 
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -38,4 +39,12 @@ public class ExcessoesGlobais {
         var erros = ex.getFieldErrors();
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(erros.stream().map(CamposValidos::new).toList());
     }
+
+
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public ResponseEntity<MensagemDeErro>cpfUnico(){
+        var erros = new MensagemDeErro(HttpStatus.CONFLICT,"CPF Já existe na base de dados.");
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(erros);
+    }
+
 }
