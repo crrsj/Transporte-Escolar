@@ -29,6 +29,7 @@ public class PagamentoServico {
         var responsavel = responsavelRepositorio.findById(responsavelId)
                 .orElseThrow(()->new ResponsavelNaoEncontrado("Reponsável não encontrado."));
         var pagamento = modelMapper.map(pagamentoDTO, Pagamento.class);
+        pagamento.setDataPagamento(LocalDate.now());
         pagamento.setResponsavel(responsavel);
         var novoPagamento = pagamentoRepositorio.save(pagamento);
         return modelMapper.map(novoPagamento, PagamentoDTO.class);

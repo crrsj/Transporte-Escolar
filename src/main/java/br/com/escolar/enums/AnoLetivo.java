@@ -1,7 +1,6 @@
 package br.com.escolar.enums;
 
-public enum AnoEscolar {
-
+public enum AnoLetivo {
     PRIMEIRO,
     SEGUNDO,
     TERCEIRO,
